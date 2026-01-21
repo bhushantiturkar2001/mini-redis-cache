@@ -2,7 +2,7 @@ package com.bhushan.cache.model;
 
 public class CacheEntry<K, V> {
 
-    // Cache entry
+    // Cache entry and impl into main
     private final K key;
     private V value;
     private final long expiryTime; // epoch mille
