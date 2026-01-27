@@ -7,8 +7,10 @@ import java.util.Map;
 
 public class InMemoryCacheService<K, V> implements CacheService<K, V> {
 
+//    private final Map<K, CacheEntry<K, V>> cache = new HashMap<>();
+
     private final Map<K, CacheEntry<K, V>> cache = new HashMap<>();
-    
+
     @Override
     public void put(K key, V value) {
         CacheEntry<K, V> entry = new CacheEntry<>(key, value, -1);
