@@ -26,11 +26,19 @@ public class InMemoryCacheService<K, V> implements CacheService<K, V> {
     @Override
     public V get(K key) {
         CacheEntry<K, V> entry = cache.get(key);
+
         if (entry == null) {
             return null;
         }
+
+        if (entry.isExpired()) {
+            cache.remove(key);
+            return null;
+        }
+
         return entry.getValue();
     }
+
 
     @Override
     public void delete(K key) {
